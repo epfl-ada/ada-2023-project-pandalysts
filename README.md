@@ -25,10 +25,21 @@ This project studies four central questions about the place of languages in movi
 
 ## Additional Datasets
 
-Box Office Mojo Worldwide Yearly Box Office Dataset:
+**1. Box Office Mojo Worldwide Yearly Box Office Dataset:**
     
-Our initial analyses showed that for 90% of the movies present in the CMU Movie Summary Corpus the box office revenue data is missing. We do need this data for the first two research questions, as such we have opted to use the Box Office Mojo database to fill composite 
+Our initial analyses showed that for 90% of the movies present in the CMU Movie Summary Corpus the box office revenue data is missing. We do need this data for the first two research questions, as such we have opted to use the Box Office Mojo database to increase our box office revenue data. 
 
-Budget Dataset
+**2. The Movies Dataset:**
 
-Validate language count - revenue positive linear relation as confounder.
+We want to see if the budget size of a movie is a possible confounder for the relation between box office revenue and the number of languages present in a movie. As a result, The Movies Dataset, a dataset that includes budget data on 45'000 movies from 2017 and before, was used to extract budget data. We merged the main movie.metadata.csv dataframe from the CMU Database with the movies_metadata.csv from the Movies Dataset, on a left join by combining the `Movie_name`, `Movie_release_year` and `Movie_runtime` columns to ensure unique indexing for all movies. 
+
+## Methods
+
+### 1. Linear Regression
+We used linear regression to understand the correlation between individuals languages and `Movie_box_office_revenue`, and to establish a linear regression equation to predict revenue from the language profile of a movie. We also used linear regression plots to establish the correlation between budget size and the box office revenue.
+
+### 2. T-tests
+We will be using t-tests to understand if there are statistically significant changes between the general language distribution in the dataset and the language distribution in a chosen genre. For example, the Hindi language is the second most prevalent language in the dataset as a whole, but is that the case for war movies as well? The same will be done for the genre distribution in general and the genre distribution in a given language.
+
+
+
