@@ -1,6 +1,11 @@
 # The Effect of Languages on Movies: The Multi-Faceted Story of a Single Parameter
 ### *By Filip Mikovíny, Eylül İpçi, Minghui Li, Aybüke Çalık, Aral Arbatlı*
 
+##The Data Story
+
+You can go and experience this journey through our Data Story Post!
+
+[Click Here!](https://mhli14.github.io/ada-pandalysts/datastory/)
 
 ## Abstract
 
