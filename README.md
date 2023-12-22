@@ -13,7 +13,7 @@ This project studies four central questions about the place of languages in movi
 - Q2: The use of which languages are associated with higher box office revenues? 
 - Q3: Which languages a country's movies have other the native one? 
     
-    - Taking the US, India and  to account
+    - Taking the US, India and the UK into account
 - Q4: Which languages are more present in a specific genre?
     
     - Considering the following genres (stereotypes to validate in parantheses): 
@@ -42,9 +42,14 @@ We used linear regression to understand the correlation between individuals lang
 ### 2. T-tests
 We will be using t-tests to understand if there are statistically significant changes between the general language distribution in the dataset and the language distribution in a chosen genre. For example, the Hindi language is the second most prevalent language in the dataset as a whole, but is that the case for war movies as well? The same will be done for the genre distribution in general and the genre distribution in a given language.
 
+### 3. Matching on Budget, Genre and Runtime
+After assessing the percentage of data availability and the distribution of certain features across the dataset, performing a matched study by matching for the `Movie_runtime`,`budget` and `Movie_genres` variables was decided to be pertinent for a more rigorous analysis. We used a condition of having at least one matching element for the genre variable (since it is a list of multiple applicable genre tags per movie), and defined a percentage difference similarity function with a threshold of 20% to assess the matching of the runtime and budget continuous variables. We then performed our statistical tests again on the matched samples.
+
+For Q4, we identified the presence of the language, whose stereotype in the genre is being evalauted, as the treatment condition for control-treatment group separation.
+
 ## Project Flow
 ### Step 1: Data Preprocessing and Scraping
-We will be incorporating all the relevant datasets and assess what data we have. The distribution and the missing data percentage is to be calculated for the language, revenue, genre and budget data. We then merge the additional revenue and budget datasets into the original CMU Movie dataset to assess the overall available data in the end. 
+We incorporated all the relevant datasets and assess what data we have. The distribution and the missing data percentage is calculated for all variables, and the distribution was plotted for the language, revenue, genre and budget data. We then merge the additional revenue and budget datasets into the original CMU Movie dataset to assess the overall available data in the end. 
 
 We extract the year of release for all movies and deposit them in the new `Movie_release_year` column. The language data was also converted into `list` objects for better accessibility and use (every movie has a list object where every language present in the movie is listed). For further analyses we filtered out the missing values.
 
@@ -64,21 +69,23 @@ We then plotted the relevant data pairs in each research question against each o
 
 ### Step 3: Linear Regression and Initial Statistical Tests
 
-In order to determine which languages are associated with a higher box office revenue and to be able to predict a box office revenue using the language composition of a movie, we implemented the Ordinary Least Squares Linear Regression to determine the coefficients of each language present in the dataset and the p-value they came with. The languages showing statistically significant association with revenue (positively or negatively). 
+In order to determine which languages are associated with a higher box office revenue and to be able to predict a box office revenue using the language composition of a movie, we implemented the Ordinary Least Squares Linear Regression to determine the coefficients of each language present in the dataset and the p-value they came with. The languages showing statistically significant association with revenue (positively or negatively) were then selected as languages of interest. 
 
-We performed a t-test alongside a Pearson's correlation to examine the correlation between the language count in movies and the box office revenue, which was determined in the data visualisation initially
+We performed a t-test alongside a Pearson's correlation to examine the correlation between the language count in movies and the box office revenue, which was determined in the data visualisation initially. Having found a strong correlation, we did the same with the budget, and obtained a strong correlation as well. This then led us to consider the budget as a possible covariate in Step 4 to assess.
 
 ### Step 4: Data Balancing and Further Statistical Tests
 
-Given the skewed distribution of the languages and the dominant presence of the English language, we will look for ways to balance the data and mitigate potential biases. One such way will be comparing the percentages of language distributions in general and in a given genre and performing a statistical test to see if there is a significant change between the presence of a language in a genre or a background presence.
+Given the skewed distribution of the languages and the dominant presence of the English language, we looked for ways to balance the data and mitigate potential biases. Especially in the case of Genre - Movie association, we took the decision to disregard the English language given its sheer dominance, and compare the other languages amongst each other, per case. 
+
+After identifying the budget as a potential covariate while assessing connections between languages and box office revenue, we decided to run a Standard Mean Difference on another continuous variable, the runtime, as well. We saw that it wasn't balanced across the dataset, and decided to perform matching on it as well. Genre was matched as well, given the very varied distribution accross the dataset.
 
 ### Step 5: Compiling the Overall Results of the Research Questions
 
-After obtaining the data visualisations and the results of the statistical test we will be employing in certain research questions, we will be evaluating the overall outcome of the each research question and interpret them. The linear regression models, (in)validated stereotypes of genre-language relationships and our other answers will be finalised
+After obtaining the data visualisations and the results of the statistical test we employed in certain research questions, we  evaluated the overall outcome of the each research question and interpret them. The linear regression models, (in)validated stereotypes of genre-language relationships and our other answers were finalised
 
 ### Step 6: Data Story
 
-We will display all our findings in a blog-post to tell a coherent story about languages in movies and its diverse, multi-faceted impact on this industry and art.
+We displayed all our findings in a blog-post to tell a coherent story about languages in movies and its diverse, multi-faceted impact on this industry and art.
 
 ## Proposed Timeline
 
@@ -94,8 +101,8 @@ We will display all our findings in a blog-post to tell a coherent story about l
 
 | Team Member   | Tasks         | 
 | ------------- |:-------------:|
-| Filip Mikovíny | <ul><li>In charge of Q2 analysis (Language - Revenue)</li><li>Mojo Dataset Preprocessing</li><li>Performing Linear Regressions</li><li>Data Visualisation</li></ul> |
-| Eylül İpçi    | <ul><li>In charge of Q4 analysis (Language - Genre)</li><li>Data Visualisation</li><li>Performing the T-tests on language and genre distributions</li></ul>     |   
-| Minghui Li |    <ul><li>In charge of Q1 analysis (Language Count - Revenue)</li><li>Data Visualisation</li><li>Data Scrapping and Preprocessing</li><li> Data Story web design (TBD)</li></ul>  |    
-| Aybüke Çalık |    <ul><li>In charge of Q3 analysis (Language - Country)</li><li>Data Visualisation</li><li>Data Exploration</li></ul>  |    
-| Aral Arbatlı |    <ul><li>In charge of Q1 - Budget subsection analysis</li><li>Data Visualisation</li><li>Budget Dataset Preprocessing</li><li>Writing the Readme and data commentary</li></ul>  |  
+| Filip Mikovíny | <ul><li>In charge of Q2 Analysis (Language - Revenue)</li><li>Mojo Dataset Preprocessing</li><li>Performing Linear Regressions</li><li>Data Visualisation</li><li>Matching for Budget, Genre and Runtime for Q2 Analysis</li></ul> |
+| Eylül İpçi    | <ul><li>In charge of Q4 Analysis (Language - Genre)</li><li>Data Visualisation</li><li>Performing the T-tests on language and genre distributions</li><li>Matching on Budget and Runtime for Q4 Analysis</li></ul>     |   
+| Minghui Li |    <ul><li>In charge of Q1 analysis (Language Count - Revenue)</li><li>Data Visualisation</li><li>Data Scrapping and Preprocessing</li><li> Data Story Template Preparation</li><li>Matching on Budget, Genre and Runtime for Q1</li></ul>  |    
+| Aybüke Çalık |    <ul><li>In charge of Q3 analysis (Language - Country)</li><li>Data Visualisation</li><li>Data Exploration</li><li>Data Commentary</li></ul>  |    
+| Aral Arbatlı |    <ul><li>In charge of Q1 - Budget subsection analysis</li><li>Data Visualisation</li><li>Budget Dataset Preprocessing</li><li>Writing the Readme and Data Commentary</li><li>Matching and SMD Analysis</li></ul>  |  
