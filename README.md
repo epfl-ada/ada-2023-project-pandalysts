@@ -102,7 +102,7 @@ We displayed all our findings in a blog-post to tell a coherent story about lang
 | Team Member   | Tasks         | 
 | ------------- |:-------------:|
 | Filip Mikovíny | <ul><li>In charge of Q2 Analysis (Language - Revenue)</li><li>Mojo Dataset Preprocessing</li><li>Performing Linear Regressions</li><li>Data Visualisation</li><li>Matching for Budget, Genre and Runtime for Q2 Analysis</li></ul> |
-| Eylül İpçi    | <ul><li>In charge of Q4 Analysis (Language - Genre)</li><li>Data Visualisation</li><li>Performing the T-tests on language and genre distributions</li><li>Matching on Budget and Runtime for Q4 Analysis</li></ul>     |   
+| Eylül İpçi    | <ul><li>In charge of Q4 Analysis (Language - Genre)</li><li>Data Visualisation</li><li>Performing the T-tests on language and genre distributions</li><li>Matching on Budget for Q4 Analysis</li></ul>     |   
 | Minghui Li |    <ul><li>In charge of Q1 analysis (Language Count - Revenue)</li><li>Data Visualisation</li><li>Data Scrapping and Preprocessing</li><li> Data Story Template Preparation</li><li>Matching on Budget, Genre and Runtime for Q1</li></ul>  |    
 | Aybüke Çalık |    <ul><li>In charge of Q3 analysis (Language - Country)</li><li>Data Visualisation</li><li>Data Exploration</li><li>Data Commentary</li></ul>  |    
-| Aral Arbatlı |    <ul><li>In charge of Q1 - Budget subsection analysis</li><li>Data Visualisation</li><li>Budget Dataset Preprocessing</li><li>Writing the Readme and Data Commentary</li><li>Matching and SMD Analysis</li></ul>  |  
+| Aral Arbatlı |    <ul><li>In charge of Q1 - Budget subsection analysis</li><li>Data Visualisation</li><li>Budget Dataset Preprocessing</li><li>Writing the Readme and the Data Story Text</li><li>Matching and SMD Analysis</li></ul>  |  
